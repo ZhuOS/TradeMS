@@ -1,1 +1,11 @@
-Ni
+
+TP_BROKER_ID = 9999
+CTP_INVESTOR_ID = 039528
+CTP_USER_ID = 039528
+CTP_INVESTOR_PASSWD = 123456
+CTP_FRONT_ADDRESS = tcp://180.168.146.187:10000
+
+
+基本逻辑是 先测试连接，然后查询信息，最后发单。
+这三部分测试好了之后，设计server-client接口
+
