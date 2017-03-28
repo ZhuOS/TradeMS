@@ -11,7 +11,8 @@ public:
 			IsOnRspQryTradeFinished(false), IsOnRspQryTradingAccountFinished(false),IsOnRspQrySettlementInfoFinished(false),
 			IsOnRspOrderActionFinished(false),IsOnRspUserLogoutFinished(false) {
 				_pVecPosDetail = new vector<PositionDetail>();
-			}
+				isNew = true;		
+	}
 	~CTPTraderSpi(){}
 	/// init _pMapSysID_Status
 	void InitMapID(map<string, OrderStatusStruct*> *p_map)
@@ -375,7 +376,7 @@ public:
 		bool isError = (pRspInfo && pRspInfo->ErrorID != 0);
 		if(isError)
 		{	/// 修改成log
-			int fd = open(ExceptionPath, O_RDWR | O_CREAT );
+			int fd = open(ExceptionPath, O_RDWR | O_CREAT,666 );
 			if(fd == -1)
 				return isError;
 			write(fd, pRspInfo->ErrorMsg, strlen(pRspInfo->ErrorMsg));
@@ -469,7 +470,7 @@ private:
 	TThostFtdcBrokerIDType g_chBrokerID;
 	TThostFtdcUserIDType g_chUserID;
 	//
-	bool isNew = true;
+	bool isNew;
 
 };
 

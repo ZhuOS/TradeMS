@@ -791,6 +791,7 @@ private:
 	///密码
 	TThostFtdcPasswordType	_password;
 	///交易所代码
+
 	TThostFtdcExchangeIDType _exchangeID;
 	///前置机网络地址
 	char *_pszFrontAddress;
@@ -813,7 +814,7 @@ private:
 	///输入报单操作
 	CThostFtdcInputOrderActionField _inputOrderActionStruct;
 	///报单操作引用
-	TThostFtdcOrderActionRefType _orderActionRefID = 0;
+	TThostFtdcOrderActionRefType _orderActionRefID;// = 0;
 	///存储所有报单状态信息，以报单引用作为键值
 	map<string, OrderStatusStruct*> _mapSysID_Status;
 	///

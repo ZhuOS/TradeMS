@@ -11,7 +11,7 @@ HEADERS = -I$(HEAD_PATHS)
 all : $(TARGETS)
 
 main: $(SRC_PATHS)/main.o
-	$(GXX) $(FLAGS) $(HEADERS) $(LIBS) $^ -o $(TARGET_PATHS)/main
+	$(GXX) $(FLAGS) $^ -o $(TARGET_PATHS)/main $(HEADERS) $(LIBS)
 
 $(SRC_PATHS)/main.o: $(SRC_PATHS)/main.cpp $(SRC_PATHS)/CTPTraderSpi.h $(SRC_PATHS)/Comment.h  $(SRC_PATHS)/TradeManager.h
 	$(GXX) $(FLAGS) $(HEADERS) $(LIBS) -c $(SRC_PATHS)/main.cpp -o $@

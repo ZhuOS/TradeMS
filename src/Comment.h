@@ -16,8 +16,8 @@
 # include <string>
 using namespace std;
 char CTP_BROKER_ID[] = "9999";
-char CTP_INVESTOR_ID[] = "039528";
-char CTP_USER_ID[] = "039528";
+char CTP_INVESTOR_ID[] = "086889";
+char CTP_USER_ID[] = "086889";
 char CTP_INVESTOR_PASSWD[] = "123456";
 char CTP_FRONT_ADDRESS[]  = "tcp://180.168.146.187:10000";
 char pathOfLocalFile[]	=	"./data_recv_file/";
