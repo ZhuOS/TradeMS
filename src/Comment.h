@@ -20,9 +20,10 @@ char CTP_INVESTOR_ID[] = "086889";
 char CTP_USER_ID[] = "086889";
 char CTP_INVESTOR_PASSWD[] = "123456";
 char CTP_FRONT_ADDRESS[]  = "tcp://180.168.146.187:10000";
+char CTP_MD_FRONT_ADDRESS[]  = "tcp://180.168.146.187:10010";
 char pathOfLocalFile[]	=	"./data_recv_file/";
 char ExceptionPath[] = "./temp/exception.txt\n";
-char INSTRUMENTID[]	= "ru1701";
+char INSTRUMENTID[]	= "ru1706";
 char EXCHANGEID[] = "SHFE";
 char COMB_OFFSET_FLAG[] = "0";
 struct	OrderStatusStruct

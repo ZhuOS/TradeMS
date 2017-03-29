@@ -13,7 +13,7 @@ all : $(TARGETS)
 main: $(SRC_PATHS)/main.o
 	$(GXX) $(FLAGS) $^ -o $(TARGET_PATHS)/main $(HEADERS) $(LIBS)
 
-$(SRC_PATHS)/main.o: $(SRC_PATHS)/main.cpp $(SRC_PATHS)/CTPTraderSpi.h $(SRC_PATHS)/Comment.h  $(SRC_PATHS)/TradeManager.h
+$(SRC_PATHS)/main.o: $(SRC_PATHS)/main.cpp $(SRC_PATHS)/CTPTraderSpi.h $(SRC_PATHS)/Comment.h  $(SRC_PATHS)/TradeManager.h $(SRC_PATHS)/CTPMdSpi.h
 	$(GXX) $(FLAGS) $(HEADERS) $(LIBS) -c $(SRC_PATHS)/main.cpp -o $@
 
 

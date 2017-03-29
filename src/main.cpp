@@ -1,16 +1,30 @@
-# include <iostream>
-# include "Comment.h"
-# include "CTPTraderSpi.h"
-# include "TradeManager.h"
+#include <iostream>
+#include "Comment.h"
+#include "CTPTraderSpi.h"
+#include "CTPMdSpi.h"
+#include "TradeManager.h"
 using namespace std;
+CThostFtdcMdApi *pMdUserApi;
 
+char *ppInstrumentID[] = {"ru1705", "ru1704"};			// 行情订阅列表，注意，这个合约ID会过时的，注意与时俱进修改
+int iInstrumentID = 2;									// 行情订阅数量
+// 请求编号
+int iRequestID = 0;
 int main()
 {
+	pMdUserApi = CThostFtdcMdApi::CreateFtdcMdApi(pathOfLocalFile, false);
+	CTPMdSpi *pUserSpi = new CTPMdSpi();
+	pMdUserApi->RegisterSpi(pUserSpi);
+	pMdUserApi->RegisterFront(CTP_MD_FRONT_ADDRESS);
+	pMdUserApi->Init();
+	pMdUserApi->Join();
+	/*
 	CThostFtdcTraderApi *pUserTraderApi = CThostFtdcTraderApi::CreateFtdcTraderApi(pathOfLocalFile);
 	CTPTraderSpi *pUserTraderSpi = new CTPTraderSpi();
 	TradeManager *pTradeManager = new TradeManager(pUserTraderApi, pUserTraderSpi);
 	pTradeManager->Start();
 	pTradeManager->WorkHand();
+	*/
 	/*pTradeManager->SetUserInfo();
 	pTradeManager->RegisterSpi();
 	pTradeManager->RegisterFront();
@@ -107,7 +121,7 @@ int main()
 		}
 	}
 	*/
-	pTradeManager->Release();
+	//pTradeManager->Release();
 	
 	
 	return 0;

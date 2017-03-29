@@ -436,6 +436,46 @@ public:
 		else
 			return NULL;
 	}
+
+	virtual void OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {
+		printf("OnRtnDepthMarketData: \n");
+		if (IsRespError(pRspInfo)) {
+			IsOnRspQryDepthMarketDataFinished = true;
+			return;
+		}
+		if(pDepthMarketData == NULL){
+			printf("NULL\n");
+			IsOnRspQryDepthMarketDataFinished = true;
+			return;
+		}
+		printf("RequestID=[%d], Chain=[%d]\n", nRequestID, bIsLast);
+		printf("TradingDay=[%s], InstrumentID=[%s],ExchangeInstID=[%s],PreSettlementPrice=[%6.1f],LastPrice=[%6.1f]\nBid1=[%6.1f*%d],Ask1=[%6.1f*%d]\n",
+//Bid2=[%6.1f*%d],Bid3=[%6.1f*%d],Bid4=[%6.1f*%d],Bid5=[%6.1f*%d]\n\
+//,Ask2=[%6.1f*%d],Ask3=[%6.1f*%d],Ask4=[%6.1f*%d],Ask5=[%6.1f*%d]\n",
+				pDepthMarketData->TradingDay,pDepthMarketData->InstrumentID,pDepthMarketData->ExchangeInstID,
+				pDepthMarketData->PreSettlementPrice,pDepthMarketData->LastPrice,
+				pDepthMarketData->BidPrice1,pDepthMarketData->BidVolume1,
+				//pDepthMarketData->BidPrice2,pDepthMarketData->BidVolume2,
+				//pDepthMarketData->BidPrice3,pDepthMarketData->BidVolume3,
+				//pDepthMarketData->BidPrice4,pDepthMarketData->BidVolume4,
+				//pDepthMarketData->BidPrice5,pDepthMarketData->BidVolume5,
+				pDepthMarketData->AskPrice1,pDepthMarketData->AskVolume1);
+				//pDepthMarketData->AskPrice2,pDepthMarketData->AskVolume2,
+				//pDepthMarketData->AskPrice3,pDepthMarketData->AskVolume3,
+				//pDepthMarketData->AskPrice4,pDepthMarketData->AskVolume4,
+				//pDepthMarketData->AskPrice5,pDepthMarketData->AskVolume5);
+		/*
+		strcpy(_marketData.InstrumentID, pDepthMarketData->InstrumentID);
+		_marketData.PreSettlementPrice = pDepthMarketData->PreSettlementPrice;
+		_marketData.LastPrice = pDepthMarketData->LastPrice;
+		_marketData.BidPrice1 = pDepthMarketData->BidPrice1;
+		_marketData.AskPrice1 = pDepthMarketData->AskPrice1;
+		_marketData.BidVolume1 = pDepthMarketData->BidVolume1;
+		_marketData.AskVolume1 = pDepthMarketData->AskVolume1;*/
+		//if(bIsLast == 1)
+		//	IsOnRspQryDepthMarketDataFinished = true;
+
+	}
 	/// 标志
 	volatile bool IsOnFrontConnectedFinished;
 	volatile bool IsOnRspUserLoginFinished;

@@ -635,9 +635,9 @@ public:
 		_pReadTimeDB = new RealTimeDB();
 		SetUserInfo();
 		RegisterSpi();
-		RegisterFront();
-		SubscribePrivateTopic(THOST_TERT_RESUME);
+		//SubscribePrivateTopic(THOST_TERT_RESUME);
 		SubscribePublicTopic(THOST_TERT_RESTART);
+		RegisterFront();
 		Init();
 		UserLogin();
 		SettlementInfoConfirm();
@@ -700,6 +700,7 @@ public:
 			{
 				///合约代码
 				TThostFtdcInstrumentIDType	InstrumentID;
+				//memcpy(InstrumentID, INSTRUMENTID, sizeof(INSTRUMENTID));
 				case 'i':
 					///买卖方向
 					TThostFtdcDirectionType	Direction;
